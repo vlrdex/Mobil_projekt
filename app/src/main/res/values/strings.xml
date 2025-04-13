@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Szonyeg_shop</string>
+    <string name="bejelentkez">Bejelentkezés</string>
+    <string name="email">email</string>
+    <string name="password">jelszó</string>
+    <string name="regist">Regisztrálok!</string>
+    <string name="passwort_again">jelszó ismétlés</string>
+    <string name="name">név</string>
+</resources>

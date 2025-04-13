@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:fitsSystemWindows="true"
+    tools:context=".CartActivity"
+    android:background="@color/primary_dark">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarCart"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/accent_gold"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:title="Your Cart" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCart"
+        android:layout_width="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:listitem="@layout/item_cart" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingTop="8dp"
+        android:layout_marginBottom="25dp"
+        >
+
+        <TextView
+            android:id="@+id/textViewTotalLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Total:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/text_color_primary"/>
+
+        <TextView
+            android:id="@+id/textViewTotalAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/text_color_primary"/>
+
+        <Button
+            android:id="@+id/buttonCheckout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Checkout"
+            android:backgroundTint="@color/accent_gold"
+            android:textColor="@color/button_color"
+            android:layout_marginStart="16dp"/>
+    </LinearLayout>
+</LinearLayout>

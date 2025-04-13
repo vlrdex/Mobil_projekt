@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="2dp"
+    android:background="@color/primary_dark"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/text_color_secondary_transparent">
+
+        <ImageView
+            android:id="@+id/imageViewProduct"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background"
+        android:contentDescription="nev" />
+
+        <TextView
+            android:id="@+id/textViewProductName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Product Name"
+            android:textColor="@color/text_color_primary"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead" />
+
+        <TextView
+            android:id="@+id/textViewProductPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Price: $XX.XX"
+            android:textColor="@color/text_color_primary"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+        <Button
+            android:id="@+id/buttonAddToCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/accent_gold"
+            android:textColor="@color/button_color"
+            android:text="Kosárba"
+            android:layout_gravity="end"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

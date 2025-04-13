@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegistActivity"
+    android:background="@color/primary_dark"
+    android:fitsSystemWindows="true">
+
+    <TextView
+        android:id="@+id/login_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Regisztráció"
+        android:textColor="@color/text_color_primary"
+        app:layout_constraintBottom_toTopOf="@id/name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/name"
+        android:textColorHint="@color/text_color_secondary"
+        android:textColor="@color/text_color_primary"
+        android:backgroundTint="@color/accent_gold"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@id/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_text"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:autofillHints="emailAddress"
+        android:hint="@string/email"
+        android:textColorHint="@color/text_color_secondary"
+        android:textColor="@color/text_color_primary"
+        android:backgroundTint="@color/accent_gold"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@id/password"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/password"
+        android:textColorHint="@color/text_color_secondary"
+        android:textColor="@color/text_color_primary"
+        android:backgroundTint="@color/accent_gold"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@id/password_again"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/password_again"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:hint="@string/passwort_again"
+        android:textColorHint="@color/text_color_secondary"
+        android:textColor="@color/text_color_primary"
+        android:backgroundTint="@color/accent_gold"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@id/regist_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/regist_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:onClick="regist"
+        android:text="@string/regist"
+        android:backgroundTint="@color/button_color"
+        android:textColor="@color/text_color_primary"
+        app:layout_constraintBottom_toTopOf="@+id/backToLogin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/password_again" />
+
+    <Button
+        android:id="@+id/backToLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:onClick="login"
+        android:text="@string/bejelentkez"
+        android:backgroundTint="@color/button_color"
+        android:textColor="@color/text_color_primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/regist_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
