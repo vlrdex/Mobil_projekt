@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfileActivity"
+    android:background="@color/primary_dark"
+    android:fitsSystemWindows="true">
+    <!-- Cseréld le a .EditProfileActivity-t a tényleges Activity nevére. -->
+
+    <TextView
+        android:id="@+id/edit_profile_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profil módosítása"
+        android:textColor="@color/text_color_primary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/editTextEditName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <EditText
+        android:id="@+id/editTextEditName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/name"
+        android:textColorHint="@color/text_color_secondary"
+        android:textColor="@color/text_color_primary"
+        android:backgroundTint="@color/accent_gold"
+        android:inputType="textCapWords"
+        app:layout_constraintBottom_toTopOf="@id/editTextEditEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_profile_title"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/editTextEditEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:autofillHints="emailAddress"
+        android:hint="@string/email"
+        android:textColorHint="@color/text_color_secondary"
+        android:textColor="@color/text_color_primary"
+        android:backgroundTint="@color/accent_gold"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@id/editTextEditOldPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEditName"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/editTextEditOldPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:autofillHints="emailAddress"
+        android:hint="Régi jelszó"
+        android:textColorHint="@color/text_color_secondary"
+        android:textColor="@color/text_color_primary"
+        android:backgroundTint="@color/accent_gold"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@id/editTextEditNewPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEditEmail"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/editTextEditNewPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:autofillHints="emailAddress"
+        android:hint="Régi jelszó"
+        android:textColorHint="@color/text_color_secondary"
+        android:textColor="@color/text_color_primary"
+        android:backgroundTint="@color/accent_gold"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@id/editTextEditNewPasswordVer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEditOldPassword"
+        tools:ignore="LabelFor" />
+
+    <EditText
+        android:id="@+id/editTextEditNewPasswordVer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="16dp"
+        android:autofillHints="emailAddress"
+        android:hint="Régi jelszó"
+        android:textColorHint="@color/text_color_secondary"
+        android:textColor="@color/text_color_primary"
+        android:backgroundTint="@color/accent_gold"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@id/buttonSaveProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEditNewPassword"
+        tools:ignore="LabelFor" />
+
+    <!-- Mentés gomb -->
+    <Button
+        android:id="@+id/buttonSaveProfile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="32dp"
+        android:text="Mentés"
+        android:backgroundTint="@color/button_color"
+        android:textColor="@color/text_color_primary"
+        app:layout_constraintBottom_toTopOf="@+id/buttonCancelEdit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextEditNewPasswordVer" />
+
+    <!-- Mégse gomb -->
+    <Button
+        android:id="@+id/buttonCancelEdit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="8dp"
+        android:text="Mégsem"
+        android:backgroundTint="@color/button_color"
+        android:textColor="@color/text_color_primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonSaveProfile" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

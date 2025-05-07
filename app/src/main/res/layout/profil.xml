@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_horizontal"
+    tools:context=".ProfileActivity"
+    android:background="@color/primary_dark"
+    android:fitsSystemWindows="true">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profilom"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginTop="26dp"
+        android:layout_marginBottom="32dp"
+        android:textColor="@color/text_color_primary"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Név:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_color_primary"/>
+
+    <TextView
+        android:id="@+id/textViewProfileNameValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"
+        tools:text="Felhasználó neve"
+        android:textColor="@color/accent_gold"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/text_color_primary"/>
+
+    <TextView
+        android:id="@+id/textViewProfileEmailValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginBottom="32dp"
+        tools:text="felhasznalo.email@example.com"
+        android:textColor="@color/accent_gold"/>
+
+    <Button
+        android:id="@+id/buttonModifyProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profil módosítása"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/button_color"
+        android:textColor="@color/text_color_primary"/>
+
+    <Button
+        android:id="@+id/buttonDeleteProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Profil törlése"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:textColor="@color/text_color_primary"
+        />
+
+</LinearLayout>

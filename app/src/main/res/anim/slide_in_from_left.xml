@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+    <translate
+        android:fromXDelta="-100%p"  /> <!-- Kezdj a képernyő bal szélén kívül -->
+    <!-- android:toXDelta="0%p"  Ezt az Adapterben állítjuk be a ViewPropertyAnimator-ral -->
+    <alpha
+        android:fromAlpha="0.0"      /> <!-- Kezdj átlátszóan -->
+    <!-- android:toAlpha="1.0" Ezt is az Adapterben állítjuk be -->
+</set>

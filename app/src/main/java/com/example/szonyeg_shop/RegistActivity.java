@@ -17,7 +17,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -28,6 +33,7 @@ public class RegistActivity extends AppCompatActivity {
     EditText verPasswordEditText;
 
     private FirebaseAuth auth;
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +45,7 @@ public class RegistActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.password);
         verPasswordEditText = findViewById(R.id.password_again);
         auth=FirebaseAuth.getInstance();
+        db=FirebaseFirestore.getInstance();
     }
 
     public void regist(View view){
@@ -53,7 +60,23 @@ public class RegistActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            back_to_main();
+                            Map<String,Object> userdata= new HashMap<>();
+                            userdata.put("email",email);
+                            userdata.put("name",name);
+
+                            db.collection("Users").document(Objects.requireNonNull(task.getResult().getUser()).getUid()).set(userdata)
+                                    .addOnSuccessListener(aVoid -> {
+                                        back_to_main();
+                                    })
+                                    .addOnFailureListener(e -> {
+                                        new AlertDialog.Builder(RegistActivity.this)
+                                                .setTitle("Sikertelen regisztráció.")
+                                                .setMessage("Váratlan hiba történt probáld meg ujra később")
+                                                .setPositiveButton("OK", (dialog, which) -> dialog.dismiss())
+                                                .show();
+                                    }
+                                    );
+
                         }else {
                             Exception exception = task.getException();
                             String errorMessage;

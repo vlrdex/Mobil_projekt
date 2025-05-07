@@ -17,6 +17,12 @@
         >
     </item>
     <item
+        android:id="@+id/profile"
+        app:showAsAction="never"
+        android:title="Profil"
+        >
+    </item>
+    <item
         android:id="@+id/log_out_button"
         app:showAsAction="never"
         android:icon="@drawable/exit"

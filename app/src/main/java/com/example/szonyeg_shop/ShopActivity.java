@@ -95,6 +95,9 @@ public class ShopActivity extends AppCompatActivity {
             FirebaseAuth.getInstance().signOut();
             finish();
             return true;
+        }else if(id==R.id.profile){
+            Intent intent = new Intent(this,ProfileActivity.class);
+            startActivity(intent);
         } else {
             return super.onOptionsItemSelected(item);
         }
