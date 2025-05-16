@@ -14,12 +14,18 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.ArrayList;
 
 public class ShopActivity extends AppCompatActivity {
 
     private FirebaseUser user;
+    private FirebaseFirestore db;
+    private CollectionReference items;
     private RecyclerView mRecycleView;
     private ArrayList<ShopingItem> itemData;
     private ShopingItemAdatpter shopingItemAdatpter;
@@ -38,6 +44,7 @@ public class ShopActivity extends AppCompatActivity {
         }
 
         mRecycleView=findViewById(R.id.recyclerViewProducts);
+        db=FirebaseFirestore.getInstance();
 
         itemData=new ArrayList<>();
         shopingItemAdatpter=new ShopingItemAdatpter(this,itemData);
@@ -46,21 +53,23 @@ public class ShopActivity extends AppCompatActivity {
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        items=db.collection("items");
         setUpItems();
 
     }
 
 
     private void setUpItems(){
-        itemData.add( new ShopingItem("nagy","20",R.drawable.szonyeg1));
-        itemData.add( new ShopingItem("közepes","15",R.drawable.szonyeg2));
-        itemData.add( new ShopingItem("kicsi","10",R.drawable.szonyeg3));
-        itemData.add( new ShopingItem("pici","5",R.drawable.szonyeg4));
-        itemData.add( new ShopingItem("plusz","12",R.drawable.szonyeg5));
-        itemData.add( new ShopingItem("nagyon nagy","30",R.drawable.szonyeg6));
+        itemData.clear();
+        items.whereGreaterThan("amount",0).orderBy("name", Query.Direction.ASCENDING).get().addOnSuccessListener(e->{
+            for (QueryDocumentSnapshot b:e){
+                ShopingItem item=b.toObject(ShopingItem.class);
+                item.id=b.getId();
+                itemData.add(item);
+                shopingItemAdatpter.notifyDataSetChanged();
+            }
+        });
 
-        shopingItemAdatpter.notifyDataSetChanged();
     }
 
 
@@ -97,6 +106,9 @@ public class ShopActivity extends AppCompatActivity {
             return true;
         }else if(id==R.id.profile){
             Intent intent = new Intent(this,ProfileActivity.class);
+            startActivity(intent);
+        } else if (id==R.id.prev_carts) {
+            Intent intent=new Intent(this,PrevCartsActivity.class);
             startActivity(intent);
         } else {
             return super.onOptionsItemSelected(item);

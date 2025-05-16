@@ -5,10 +5,12 @@ import android.content.Intent;
 import java.util.Objects;
 
 public class ShopingItem {
+
+    public String id;
     private String name;
 
     private String price;
-    private final int imageResource;
+    private int imageResource;
     private Integer amount;
 
     public ShopingItem(String name, String price, int imageResource) {
@@ -18,11 +20,15 @@ public class ShopingItem {
         this.amount=1;
     }
 
-    String getName() {
+    public ShopingItem(){
+        amount=1;
+    }
+
+    public String getName() {
         return name;
     }
 
-    String getPrice() {
+    public String getPrice() {
         return price;
     }
     public int getImageResource() {
@@ -33,7 +39,20 @@ public class ShopingItem {
         return amount;
     }
 
-    public void setAmount(int amount) {
+
+    public void setImageResource(int imageResource) {
+        this.imageResource = imageResource;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public void setAmount(Integer amount) {
         this.amount = amount;
     }
 
@@ -63,4 +82,14 @@ public class ShopingItem {
         return false;
     }
 
+    @Override
+    public String toString() {
+        return "ShopingItem{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", price='" + price + '\'' +
+                ", imageResource=" + imageResource +
+                ", amount=" + amount +
+                '}';
+    }
 }

@@ -20,6 +20,16 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:title="Your Cart" />
 
+    <TextView
+        android:id="@+id/animatedTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sikeres megrendelés!"
+        android:textAlignment="center"
+        android:textSize="0sp"
+        android:textColor="@color/text_color_primary"
+        android:alpha="0.0" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCart"
         android:layout_width="match_parent"

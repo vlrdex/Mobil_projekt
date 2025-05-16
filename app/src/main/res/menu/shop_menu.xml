@@ -17,6 +17,11 @@
         >
     </item>
     <item
+        android:id="@+id/prev_carts"
+        app:showAsAction="never"
+        android:title="Korábi megrendelések"
+        />
+    <item
         android:id="@+id/profile"
         app:showAsAction="never"
         android:title="Profil"
